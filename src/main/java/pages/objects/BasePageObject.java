@@ -42,15 +42,4 @@ public class BasePageObject extends TestBase {
         getWebElement(getLocator()).clear();
     }
 
-    public void scrollElementIntoView() {
-        WebElement button = getWebElement(getLocator());
-
-        if(!button.isDisplayed()) {
-            getJavascriptExecutor().executeScript("arguments[0].scrollBy(0, 400)", button);
-
-
-        }
-    }
-
-
 }

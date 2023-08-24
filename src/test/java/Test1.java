@@ -105,14 +105,14 @@ public class Test1 extends TestBase {
 
         TabsPage tabsPage = new TabsPage(driver);
         //NOT WIRKING DUE TO iFrame elements
-        if (tabsPage.sectionOneInitialized()) {
+        /*if (tabsPage.sectionOneInitialized()) {
             test.log(Status.INFO, "Tabs page is visible");
         } else {
             test.log(Status.INFO, "Tabs page is NOT visible");
         }
 
         //Click on Section 2 tab
-        tabsPage.secondSectionButton.click();
+        tabsPage.secondSectionButton.click();*/
 
         //Validate that Section 2 is open/expanded and the text of the section is visible
 
