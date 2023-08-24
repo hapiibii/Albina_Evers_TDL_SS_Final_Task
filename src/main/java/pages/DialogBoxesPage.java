@@ -1,8 +1,6 @@
 package pages;
 
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import pages.objects.Button;
 import pages.objects.TextField;
 
@@ -19,10 +17,6 @@ public class DialogBoxesPage {
         this.driver = driver;
     }
 
-    /*public boolean dismissButtonInitialized() {
-        return dismissButton.isButtonPresent();
-    }*/
-
     public boolean createButtonInitialized() {
         return createNewUser.isButtonPresent();
     }
@@ -35,11 +29,5 @@ public class DialogBoxesPage {
         this.password.clearField();
         this.password.setValue();
     }
-
-    /*public void clickDismissButtonButtonWithWait() {
-        WebDriverWait wait = new WebDriverWait(driver, 10);
-        wait.until(ExpectedConditions.elementToBeClickable(dismissButton.getWebElement(dismissButton.getLocator()))).click();
-
-    }*/
 
 }

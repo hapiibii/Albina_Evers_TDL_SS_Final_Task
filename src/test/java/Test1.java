@@ -1,20 +1,16 @@
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
-import com.aventstack.extentreports.model.Media;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import common.TestBase;
 import org.openqa.selenium.*;
-import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
+import pages.AutoCompletePage;
 import pages.DialogBoxesPage;
 import pages.HomePage;
 import pages.TabsPage;
-import pages.objects.Button;
 
 import java.io.File;
 import java.io.IOException;
@@ -142,6 +138,8 @@ public class Test1 extends TestBase {
 
         homePage.progressBarButton.scrollDownToElement();
         homePage.progressBarButton.click();
+
+        closeDriver();
     }
 
     @Test(description = "Test 4")
@@ -160,8 +158,30 @@ public class Test1 extends TestBase {
 
         homePage.dialogBoxButton.scrollDownToElement();
         homePage.dialogBoxButton.click();
+
+        closeDriver();
     }
 
+    @Test(description = "Test 5")
+    public void fifthTest() {
+        ExtentTest test = report.createTest("Search bar test - Test 5");
+        test.log(Status.INFO, "Test 5 started");
+
+        openAutoCompleteUrl();
+        AutoCompletePage autoCompletePage = new AutoCompletePage(driver);
+
+        if (autoCompletePage.searchFieldInitialized()) {
+            test.log(Status.INFO, "Auto Complete page is visible");
+        } else {
+            test.log(Status.INFO, "Auto Complete is NOT visible");
+        }
+
+
+        autoCompletePage.searchField.setValue();
+        autoCompletePage.andersAndersson.click();
+
+        closeDriver();
+    }
 
     @AfterClass
     public static void endTest()

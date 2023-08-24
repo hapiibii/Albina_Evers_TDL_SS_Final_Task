@@ -15,4 +15,9 @@ public class TextField extends BasePageObject
         textField.sendKeys(getValue());
         System.out.println("In field " + getName() + " the following value was entered: '" + getValue() + "'");
     }
+
+    public boolean isFieldPresent() {
+        WebElement field = getWebElement(getLocator());
+        return field.isDisplayed();
+    }
 }

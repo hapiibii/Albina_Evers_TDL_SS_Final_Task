@@ -20,9 +20,12 @@ public class TestBase {
 
     private static WebDriver driver;
 
-    public void openUrl()
-    {
+    public void openUrl() {
         getDriver().get(url);
+    }
+
+    public void openAutoCompleteUrl() {
+        getDriver().get(url + "auto-complete/");
     }
 
     public WebDriver getDriver()

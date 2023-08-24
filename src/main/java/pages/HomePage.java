@@ -1,10 +1,6 @@
 package pages;
 
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import pages.objects.Button;
 
 public class HomePage {
@@ -17,22 +13,10 @@ public class HomePage {
 
     public HomePage(WebDriver driver)
     {
-        //PageFactory.initElements(driver, this);
         this.driver = driver;
     }
 
     public boolean dialogBoxButtonInitialized() {
         return dialogBoxButton.isButtonPresent();
     }
-
-    public void clickDialogBoxButtonWithWait() {
-        WebDriverWait wait = new WebDriverWait(driver, 10);
-        wait.until(ExpectedConditions.elementToBeClickable(dialogBoxButton.getWebElement(dialogBoxButton.getLocator()))).click();
-
-    }
-
-
-
-
-
 }
