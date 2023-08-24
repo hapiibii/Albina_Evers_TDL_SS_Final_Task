@@ -33,4 +33,6 @@ public class BasePageObject extends TestBase {
     public void clearField() {
         getWebElement(getLocator()).clear();
     }
+
+
 }

@@ -27,14 +27,14 @@ public class TestBase {
 
     public WebDriver getDriver()
     {
-        if(this.driver == null)
+        if(driver == null)
         {
-            System.setProperty("webdriver.chrome.driver", "src" + File.separator + "main" + File.separator + "resources" + File.separator + "drivers" + File.separator + "chromedriver");
+            System.setProperty("webdriver.chrome.driver", "src" + File.separator + "main" + File.separator + "resources" + File.separator + "drivers" + File.separator + "chromedriver.exe");
             driver = new ChromeDriver();
             driver.manage().window().maximize();
             driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         }
-        return this.driver;
+        return driver;
     }
 
     public void closeDriver()

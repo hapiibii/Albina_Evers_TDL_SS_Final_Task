@@ -1,14 +1,17 @@
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
+import com.aventstack.extentreports.model.Media;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import common.TestBase;
-import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.*;
+import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import pages.DialogBoxesPage;
 import pages.HomePage;
+import pages.objects.Button;
 
 import java.io.File;
 import java.io.IOException;
@@ -44,35 +47,40 @@ public class Test1 extends TestBase {
     }
 
     @Test(description = "Test1")
-    public void firstTest() {
+    public void firstTest() throws InterruptedException {
         //Initializing 'https://www.globalsqa.com/demo-site/'
-        ExtentTest test = report.createTest("Testing the New User creation function");
-        test.log(Status.INFO, "The test is started");
-        openUrl();
+        ExtentTest test = report.createTest("Create new user test - Test 1");
+        test.log(Status.INFO, "Test 1 started");
 
-        HomePage homePage = new HomePage();
-        if(homePage.initialized()) {
+        openUrl();
+        HomePage homePage = new HomePage(driver);
+
+        if (homePage.initialized()) {
             test.log(Status.INFO, "Home page is displayed");
-        }
-        else {
+        } else {
             test.log(Status.INFO, "Home page is NOT displayed");
         }
 
+        //Scroll the scene till the button is in view
         //Click on button DialogBox
-        homePage.dialogBox.click();
-        test.log(Status.INFO, "DialogBox was clicked");
+        homePage.dialogBoxButton.click();
 
-        DialogBoxesPage dialogBoxesPage = new DialogBoxesPage();
-        if(dialogBoxesPage.initialized()) {
-            test.log(Status.INFO, "Dialog boxes page is displayed");
+
+
+        /*DialogBoxesPage dialogBoxesPage = new DialogBoxesPage(driver);
+
+        driver.switchTo().defaultContent();
+
+        if(!dialogBoxesPage.createButtonInitialized()) {
+            test.log(Status.INFO, "Dialog Boxes page is NOT displayed");
         }
         else {
-            test.log(Status.INFO, "Dialog boxes page is NOT displayed");
+            test.log(Status.INFO, "Dialog Boxes page is displayed");
         }
 
         //Click on button Create new user
-        dialogBoxesPage.createNewUser.click();
-        test.log(Status.INFO, "Create New User button was clicked");
+        //dialogBoxesPage.createNewUser.click();*/
+        closeDriver();
 
         //Log output in the console the text each field has
 
@@ -85,6 +93,7 @@ public class Test1 extends TestBase {
         //Validate that a new entry is shown in the [Existing users] section and that new entry contains the data you entered in the text fields
 
         //run this three tests with 3 different data sets for fields "Name" and "Email Address"
+
     }
 
 
