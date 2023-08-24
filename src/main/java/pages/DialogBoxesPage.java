@@ -6,11 +6,12 @@ import pages.objects.TextField;
 
 public class DialogBoxesPage {
 
-    public Button createNewUser = new Button("Create new user", "id=create-user");
-    //public Button dismissButton = new Button("Close ad", "xpath=/html/body/div[1]/div[2]/div[2]/div/div/div[2]/div/div/div[3]");
+    public Button createNewUser = new Button("Create new user", "xpath=//button[@id='create-user']");
     public TextField name = new TextField("Name", "id=name", "Albina");
     public TextField email = new TextField("Email", "id=email", "awimbawe@gmail.com");
-    public TextField password = new TextField("Password", "id-password", "password");
+    public TextField password = new TextField("Password", "id=password", "password");
+    public Button messageBoxTab = new Button("Message Box", "xpath=//li[@id='Message Box']");
+    public Button okButton = new Button("OK", "xpath=//button[contains(text(), 'Ok')]");
     private WebDriver driver;
 
     public DialogBoxesPage(WebDriver driver) {

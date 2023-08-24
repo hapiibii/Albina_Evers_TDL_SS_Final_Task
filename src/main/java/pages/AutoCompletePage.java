@@ -5,7 +5,7 @@ import pages.objects.Button;
 import pages.objects.TextField;
 
 public class AutoCompletePage {
-    public TextField searchField = new TextField("Search", "xpath=/html/body/input", "and");
+    public TextField searchField = new TextField("Search", "xpath=//input[@id='search']", "and");
     public Button andersAndersson = new Button("anders andersson", "id=ui-id-22");
     private WebDriver driver;
 
