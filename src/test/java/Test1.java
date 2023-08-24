@@ -6,6 +6,8 @@ import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import common.TestBase;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -65,17 +67,19 @@ public class Test1 extends TestBase {
         //Click on button DialogBox
         homePage.dialogBoxButton.click();
 
+        DialogBoxesPage dialogBoxesPage = new DialogBoxesPage(driver);
 
+        /* Can't close the ad I gave up
+        driver.switchTo().frame(driver.findElement(By.id("id=aswift_1")));
+        driver.findElement(By.xpath(dialogBoxesPage.dismissButton.getLocator())).click() ;
 
-        /*DialogBoxesPage dialogBoxesPage = new DialogBoxesPage(driver);
-
-        driver.switchTo().defaultContent();
-
-        if(!dialogBoxesPage.createButtonInitialized()) {
+        if(dialogBoxesPage.dismissButtonInitialized()) {
             test.log(Status.INFO, "Dialog Boxes page is NOT displayed");
+            driver.findElement(By.xpath(dialogBoxesPage.dismissButton.getLocator())).click() ;
         }
         else {
             test.log(Status.INFO, "Dialog Boxes page is displayed");
+            dialogBoxesPage.createNewUser.click();
         }
 
         //Click on button Create new user
